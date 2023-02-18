@@ -19,15 +19,20 @@ class Controller{
     }
 
 
-    // public function model($view){
+    public function model($model){
 
 
-    //     if(file_exists(".../app/view/".$view.".php")){
+        if(file_exists("../app/model/".$model.".php")){
 
-    //         require(".../app/view/".$view.".php");
-    //     }else{
+            require("../app/model/".$model.".php");
+            return $model = new $model();
+        }
+    }
 
-    //     //    require ".../app/view/404php";
-    //     }
-    // }
+
+    public function redirect($link){
+
+        header('location:'.ASSET. "/". trim($link,"/"));
+        die;
+    }
 }
